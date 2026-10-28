@@ -69,10 +69,10 @@ Internal groups (up to 100 App Store Connect users) receive builds without beta 
 
 ```sh
 asc builds next-number                       # → 43
-asc archive --build-number 43 --scheme Karatly
-asc export --archive build/Karatly-IOS.xcarchive
-asc upload --validate build/export-Karatly-IOS/Karatly.ipa
-asc upload build/export-Karatly-IOS/Karatly.ipa
+asc archive --build-number 43 --scheme MyApp
+asc export --archive build/MyApp-IOS.xcarchive
+asc upload --validate build/export-MyApp-IOS/MyApp.ipa
+asc upload build/export-MyApp-IOS/MyApp.ipa
 asc builds wait --number 43
 ```
 

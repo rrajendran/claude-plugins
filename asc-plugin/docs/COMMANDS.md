@@ -94,7 +94,7 @@ asc config show
 
 ### `asc config set`
 
-Persist a value in the user config (/Users/rrajendran/.config/asc-plugin/config.json). Keys: keyId, issuerId, keyPath, app, platform.
+Persist a value in the user config (~/.config/asc-plugin/config.json). Keys: keyId, issuerId, keyPath, app, platform.
 
 ```
 asc config set <key> <value>
@@ -103,8 +103,8 @@ asc config set <key> <value>
 Examples:
 
 ```sh
-asc config set issuerId 69a6de7e-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-asc config set keyPath ~/.keys/AuthKey_VBM5T6WP94.p8
+asc config set issuerId 00000000-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+asc config set keyPath ~/.keys/AuthKey_ABC123DEFG.p8
 ```
 
 ### `asc config unset`

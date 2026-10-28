@@ -1,6 +1,6 @@
 # asc — App Store Connect plugin for Claude Code
 
-A zero-dependency Node CLI (`asc`) that talks to the App Store Connect API with your `.p8` key, wrapped as a Claude Code plugin (slash commands + a skill) so you can say *"is Karatly ready for review?"* and have it checked, fixed and shipped.
+A zero-dependency Node CLI (`asc`) that talks to the App Store Connect API with your `.p8` key, wrapped as a Claude Code plugin (slash commands + a skill) so you can say *"is MyApp ready for review?"* and have it checked, fixed and shipped.
 
 | Capability | Commands |
 |---|---|
@@ -17,21 +17,24 @@ A zero-dependency Node CLI (`asc`) that talks to the App Store Connect API with 
 
 Requires Node ≥ 20 and Xcode (for `archive`/`export`/`upload`). No `npm install` needed.
 
-**As a Claude Code plugin**
+**As a Claude Code plugin** (from GitHub)
 
 ```sh
-claude plugin marketplace add ~/stash/xcode/asc-plugin
+claude plugin marketplace add rrajendran/claude-plugins
 claude plugin install asc@asc-local
 ```
 
-Then use `/asc:readiness`, `/asc:init`, `/asc:upload`, `/asc:ship`, `/asc:testflight`, `/asc:status`, `/asc:metadata`, `/asc:submit`, `/asc:help`. Or try it without installing: `claude --plugin-dir ~/stash/xcode/asc-plugin`.
+Then use `/asc:readiness`, `/asc:init`, `/asc:upload`, `/asc:ship`, `/asc:testflight`, `/asc:status`, `/asc:metadata`, `/asc:submit`, `/asc:help`.
 
 **As a plain CLI**
 
 ```sh
-ln -s ~/stash/xcode/asc-plugin/bin/asc /usr/local/bin/asc   # or any dir on PATH
+git clone https://github.com/rrajendran/claude-plugins.git ~/claude-plugins
+ln -s ~/claude-plugins/asc-plugin/bin/asc /usr/local/bin/asc   # or any dir on PATH
 asc help
 ```
+
+**From a local checkout** (development): `claude plugin marketplace add <path-to-clone>`, or try it without installing: `claude --plugin-dir <path-to-clone>/asc-plugin`.
 
 ## Configure credentials (once)
 
@@ -39,13 +42,13 @@ You need three things from App Store Connect → *Users and Access → Integrati
 
 | Value | Where it comes from |
 |---|---|
-| Private key `.p8` | Downloaded once. Default location used here: `~/.keys/AuthKey_VBM5T6WP94.p8` |
-| Key ID | Inferred from the filename (`VBM5T6WP94`) |
+| Private key `.p8` | Downloaded once. Default location used here: `~/.keys/AuthKey_ABC123DEFG.p8` |
+| Key ID | Inferred from the filename (`ABC123DEFG`) |
 | Issuer ID | UUID shown at the top of that page — **must be provided** |
 
 ```sh
-chmod 700 ~/.keys && chmod 600 ~/.keys/AuthKey_VBM5T6WP94.p8   # directory needs the x bit
-asc config set keyPath ~/.keys/AuthKey_VBM5T6WP94.p8
+chmod 700 ~/.keys && chmod 600 ~/.keys/AuthKey_ABC123DEFG.p8   # directory needs the x bit
+asc config set keyPath ~/.keys/AuthKey_ABC123DEFG.p8
 asc config set issuerId 00000000-0000-0000-0000-000000000000
 asc auth check
 ```
@@ -55,7 +58,7 @@ Credentials are stored in `~/.config/asc-plugin/config.json` (mode 600) or suppl
 ## 60-second tour
 
 ```sh
-cd ~/stash/xcode/karatly
+cd ~/stash/xcode/myapp
 asc init                      # detects project/scheme/bundle id/team → .asc.json + ExportOptions plists
 asc readiness                 # what's blocking TestFlight / the App Store?
 asc ship --group "Internal"   # archive, export, upload, wait for processing, add to TestFlight

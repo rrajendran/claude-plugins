@@ -28,10 +28,10 @@ For CI, use env vars only (store the `.p8` contents as a secret, write it to a t
 
 ```jsonc
 {
-  "app": "com.capella.technologies.karatly",  // bundle id, numeric app id, or exact app name
+  "app": "com.example.myapp",  // bundle id, numeric app id, or exact app name
   "platform": "IOS",                          // IOS | MAC_OS | TV_OS | VISION_OS (override with --platform)
-  "project": "Karatly.xcodeproj",             // or "workspace": "X.xcworkspace"
-  "scheme": "Karatly",
+  "project": "MyApp.xcodeproj",             // or "workspace": "X.xcworkspace"
+  "scheme": "MyApp",
   "configuration": "Release",
   "teamId": "8DS3387949",
   "buildDir": "build",                        // archives and exports go here
@@ -54,7 +54,7 @@ App Store versions are per platform. Keep `platform` as the common one and overr
 
 ```sh
 asc readiness --platform macos
-asc ship --platform macos --scheme Karatly
+asc ship --platform macos --scheme MyApp
 ```
 
 macOS archives export a `.pkg`; iOS exports an `.ipa`. `asc upload` picks `-t ios` / `-t macos` accordingly.

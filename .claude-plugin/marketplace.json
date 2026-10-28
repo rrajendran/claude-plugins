@@ -4,7 +4,7 @@
   "plugins": [
     {
       "name": "asc",
-      "source": "./",
+      "source": "./asc-plugin",
       "description": "App Store Connect: readiness, upload, TestFlight, metadata, review submission"
     }
   ]

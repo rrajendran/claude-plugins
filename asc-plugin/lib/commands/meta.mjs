@@ -59,7 +59,7 @@ export default [
     name: 'config set',
     summary: `Persist a value in the user config (${USER_CONFIG}). Keys: ${CONFIG_KEYS.join(', ')}.`,
     usage: 'asc config set <key> <value>',
-    examples: ['asc config set issuerId 69a6de7e-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'asc config set keyPath ~/.keys/AuthKey_VBM5T6WP94.p8'],
+    examples: ['asc config set issuerId 00000000-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'asc config set keyPath ~/.keys/AuthKey_ABC123DEFG.p8'],
     noAuth: true,
     run: async (ctx) => {
       const [k, v] = ctx.args;

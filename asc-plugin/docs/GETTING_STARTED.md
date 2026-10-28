@@ -17,7 +17,7 @@ Download the `.p8` immediately — Apple lets you download it once. Note the **K
 
 ```sh
 mkdir -p ~/.keys && chmod 700 ~/.keys
-mv ~/Downloads/AuthKey_VBM5T6WP94.p8 ~/.keys/ && chmod 600 ~/.keys/AuthKey_VBM5T6WP94.p8
+mv ~/Downloads/AuthKey_ABC123DEFG.p8 ~/.keys/ && chmod 600 ~/.keys/AuthKey_ABC123DEFG.p8
 ```
 
 The directory needs the execute bit (`700`). With `600` on the directory nothing — not even you — can open files inside it, and `asc` will report `permission denied`.
@@ -27,10 +27,10 @@ Keep the key out of git. `asc init` adds `build/` and `.asc.env` to `.gitignore`
 ## 3. Tell `asc` about it
 
 ```sh
-asc config set keyPath ~/.keys/AuthKey_VBM5T6WP94.p8
+asc config set keyPath ~/.keys/AuthKey_ABC123DEFG.p8
 asc config set issuerId <your-issuer-uuid>
 asc auth check
-# ✔ Authenticated with key VBM5T6WP94 (1 app(s) visible)
+# ✔ Authenticated with key ABC123DEFG (1 app(s) visible)
 ```
 
 The key id is read from the filename, so `keyId` rarely needs setting. If you keep exactly one `AuthKey_*.p8` in `~/.keys`, `~/.appstoreconnect/private_keys`, `~/.private_keys` or `~/private_keys`, `asc` finds it with no configuration at all.
@@ -42,7 +42,7 @@ The API cannot create an app record. In App Store Connect → **Apps → +  → 
 ## 5. Initialise your project
 
 ```sh
-cd ~/stash/xcode/karatly
+cd ~/stash/xcode/myapp
 asc init
 ```
 
@@ -69,4 +69,4 @@ Each ✘ line ends with the command that fixes it. See [READINESS.md](READINESS.
 
 ## Using it from Claude Code
 
-After installing the plugin, just ask: *"check if Karatly is ready for TestFlight"*, *"upload the latest build and add it to the Internal group"*, or use `/asc:readiness`, `/asc:ship`, `/asc:submit`. Claude is instructed (see `skills/app-store-connect/SKILL.md`) to read before writing, never invent legal/contact text, and ask before any outward-facing action.
+After installing the plugin, just ask: *"check if MyApp is ready for TestFlight"*, *"upload the latest build and add it to the Internal group"*, or use `/asc:readiness`, `/asc:ship`, `/asc:submit`. Claude is instructed (see `skills/app-store-connect/SKILL.md`) to read before writing, never invent legal/contact text, and ask before any outward-facing action.

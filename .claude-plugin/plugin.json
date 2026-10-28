@@ -1,0 +1,7 @@
+{
+  "name": "asc",
+  "version": "1.0.0",
+  "description": "App Store Connect from Claude Code: readiness audit, project config generation, build upload, TestFlight, metadata, screenshots and review submission.",
+  "keywords": ["app-store-connect", "testflight", "ios", "macos", "xcode", "release"],
+  "license": "MIT"
+}

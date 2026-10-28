@@ -1,0 +1,14 @@
+{
+  "name": "asc-plugin",
+  "version": "1.0.0",
+  "description": "App Store Connect CLI + Claude Code plugin: readiness audit, config generation, upload, TestFlight, metadata, screenshots, review submission.",
+  "type": "module",
+  "bin": { "asc": "bin/asc" },
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "docs": "node bin/asc docs > docs/COMMANDS.md"
+  },
+  "license": "MIT",
+  "private": true
+}

@@ -1,0 +1,6 @@
+node_modules/
+.asc.env
+*.p8
+*.key
+build/
+.DS_Store

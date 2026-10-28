@@ -1,0 +1,11 @@
+{
+  "name": "asc-local",
+  "owner": { "name": "Ramesh Rajendran" },
+  "plugins": [
+    {
+      "name": "asc",
+      "source": "./",
+      "description": "App Store Connect: readiness, upload, TestFlight, metadata, review submission"
+    }
+  ]
+}
